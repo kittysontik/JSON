@@ -1,0 +1,17 @@
+{
+  "ID": 19,
+  "Summary": "Infinite loop on input file with read-only attribute.",
+  "Description": "If an input file has the 'read-only' attribute, the app can not move the processed file into the destination directory: so the app processes the file again and thus falls into the infinite loop.",
+  "Expected_Result": "The processed file is moved from the input directory to the destination directory.",
+  "Actual_Result": "The processed data (new file) appears inside the destination directory, but the original file is not deleted from the input directory.",
+  "Req": "DS-2.1",
+  "Steps_To_Reproduce": "1. Place a valid file into the input directory. 2. Set the 'read-only' attribute on this file. 3. Start the app.",
+  "Bug": "The processing result appears inside the destination dir (and the file is repeatedly updated according to the last write time), but the original file stays inside the input directory.",
+  "Reproducibility": "Always",
+  "Severity": "Medium",
+  "Priority": "Normal",
+  "Symptom": "Incorrect operation",
+  "Workaround": "No",
+  "Comments": "If the customer has no special plans for using 'read-only' attribute on files in the input directory, the easiest solution is to remove the attribute once it is detected.",
+  "Attachments": null
+}
